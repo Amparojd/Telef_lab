@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" type="text/css"  href="aspect.css">
+        <script type="text/javascript" src="func.js"> </script>
+    </head>
+    <body>
+        <form id="formulario" action="FormularioTelefónica.php"></form>
+        <h1>Formulario Información Alta Telefónica</h1>
+             <fieldset class="datos"> 
+                <legend class="Titulo">Datos Personales</legend>
+                    <label for="nombre">Nombre:</label>
+                        <input type="text"  class="dato" maxlength="30" placeholder="Introduce nombre"><br/>
+                    <label for="apellidos">Apellidos:</label>
+                        <input type="text" class="dato" maxlength="60" placeholder="Introduce dos apellidos"></label><br/>
+                    <label for="direccion">Dirección: </label> 
+                        <input type="text" class="dato" maxlength="60" placeholder="Introduce dirección completa"><br/>
+                    <label for="cpostal">Código Postal:</label>
+                        <input type="text"  id="cp" placeholder="Cinco dígitos de CP" class="dato" minlegth="5" maxlength="5" pattern="[0-9]{5}" />
+                            <span class="nomsj" id="mensaje_cp"></span> <br/>
+                    <label for="provin">Localidad:</label>
+                        <input type="text" id="provin" class="dato" pattern="^[a-zA-Z]+$" placeholder="Introduce localidad"/>
+                            <span class="nomsj" id="mensaje_prov"></span>
+            </fieldset><br/>
+            <fieldset>
+                <legend>Tipo Contratación</legend>
+                <input type="radio" name="tipocon" value="nuevo" checked="checked">Nueva Contratación
+                <input type="radio" name="tipocon" value="porta" required="required">Portabilidad
+                <input type="radio" name="tipocon" value="cambio">Cambio Contrato <br/>
+                Elija la compañía actual: 
+                    <select name="actualc">
+                        <option value="movistar">Movistar</option>
+                        <option value="vodafone">Vodafone </option>
+                        <option value="orange">Orange</option>
+                        <option value="yoigo">Yoigo</option>
+                        <option value="no">No Tengo Ninguna Compañía</option>
+                    </select>&nbsp;&nbsp;&nbsp;&nbsp;
+                En caso de Portabilidad, elija la nueva compañía 
+                    <select name="nuevacompania">
+                        <option value="movistar">Movistar</option>
+                        <option value="vodafone">Vodafone</option>
+                        <option value="Orange">Orange</option>
+                        <option value="Yoigo">Yoigo</option>
+                    </select>
+            </fieldset><br/>
+            <fieldset class="datos">
+                <legend class="titulo">Datos Bancarios</legend>
+                <label for="pais">País:</label>
+                    <input type="text" class="banc" id="pais" value= "ES" readonly="readonly" disabled="disabled">(Sólo válido ES)<br/>
+                <label for="IBAN">Control IBAN</label>
+                    <input type="text" class="banc" id="IBAN" value="" placeholder="XX" maxlength="2" pattern="[0-9]{2}"/>(Dos dígitos)<br/>
+                <label for="entidad">Entidad:</label>
+                    <input type="text" class="banc" id="entidad" value="" placeholder="XXXX" maxlength="4" pattern="[0-9]{4}"/>(Cuatro dígitos)<br/>
+                <label for="sucursal">Sucursal:</label>
+                     <input type="text" class="banc" id="sucursal" value="" placeholder="XXXX" maxlength="4" pattern="[0-9]{4}"/>(Cuatro dígitos)<br/>
+                <label for="DC">DC: </label>
+                    <input type="text" class="banc" id="DC" value="" placeholder="XX" maxlength="2"pattern="[0-9]{2}"/>(dos dígitos)<br/>
+                <label for="cuenta">Cuenta: </label>
+                    <input type="text" class="banc" id="cuenta" value="" placeholder="XXXXXXXXXX" maxlength="10" pattern="[0-9]{10}"/>(Diez dígitos)<br/>
+            </fieldset><br/>
+            <fieldset>
+                <legend>Datos estadísticos-¿Cómo nos conoció?</legend>
+                <list id="estadistica">
+                    <input type="checkbox" name="estad" value="tv">A través de TV<br/>
+                    <input type="checkbox" name="estad" value="radio">A través de la radio<br/>
+                    <input type="checkbox" name="estad" value="internet">A través de la internet<br/>
+                    <input type="checkbox" name="estad" value="otros">Otros<br/>
+                </list>
+                <input type="range" id="valor" min="1"max="5" step="1" value="1"/>Valoración 1-5<br/>
+                Fecha de la encuesta:<input type="date"  id ="fecha" value="2019-01-01"/>
+            </fieldset>
+            <button type="submit" class="boton" onclick="verificaCP();"> Enviar Datos</button>&nbsp;
+            <button type="button" class="boton"value="Limpiar Formulario" onclick="location.reload()">Borrar Datos</button><br/><br/>
+            <button type="button" class="boton1" onclick="popupEncuesta();">Mostrar valoración</button>&nbsp;
+            <button type="button" class="boton1" onclick="popupCuenta();">Mostrar cuenta</button>&nbsp;
+            <button type="button" class="boton1" onclick="popupDiaS();">Mostrar Día Semana</button>
+        </form>
+    </body>
+</html>

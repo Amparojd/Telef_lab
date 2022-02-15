@@ -1,0 +1,32 @@
+h1{
+    color:blue;
+    font-family:"arial";
+    text-align:center;
+    text-shadow:2px 2px 2px midnightblue;
+}
+
+fieldset {
+    background-color:rgb(205, 205, 245);
+    font-family:"arial";
+    margin:10px;
+    padding:10px;
+
+}
+legend {
+    background-color:rgb(250, 210, 227);
+    color:black;
+
+}
+input {
+    background-color:rgb(236, 223, 232);
+}
+button {
+    background-color:rgb(177, 176, 247);
+    border-radius:4px;
+    width:100px;
+    height:40px;
+    font-family:"arial";
+}
+.boton1 {
+    background-color:rgb(201, 164, 243);
+}
